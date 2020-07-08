@@ -18,9 +18,8 @@ defmodule Vox.Format.VOX.Binary.Chunk do
             "nSHP" -> spec Vox.Format.VOX.Binary.Chunk.Node.Shape
             "MATL" -> spec Vox.Format.VOX.Binary.Chunk.Material
             "LAYR" -> spec Vox.Format.VOX.Binary.Chunk.Layer
-            _ ->
-                group :other do
-                end
+            "rOBJ" -> spec Vox.Format.VOX.Binary.Chunk.RObj
+            _ -> skip group(:unknown)
         end
     end
 
