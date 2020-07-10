@@ -1,0 +1,3 @@
+%{
+  "tonic": {:hex, :tonic, "0.2.2", "80d7e9c6ceaa35b016af701884a7b2cbcc0dab5285fed081dd11106e0aa44d93", [:mix], [], "hexpm", "5a085f550848045825acd9fac59fb84a8128bf8387ca47dfe8aa9579da9ac564"},
+}
