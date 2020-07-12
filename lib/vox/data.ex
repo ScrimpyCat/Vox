@@ -1,8 +1,8 @@
 defprotocol Vox.Data do
     @type no_impl :: nil
 
-    @type faces :: :left | :right | :bottom | :top | :front | :back
-    @type origin :: { faces, faces, faces }
+    @type face :: :left | :right | :bottom | :top | :front | :back
+    @type origin :: { face, face, face }
 
     @spec origin(t) :: origin
     def origin(data)
