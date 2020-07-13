@@ -59,4 +59,10 @@ defmodule Vox do
 
     @spec voxel!(Vox.Data.t, Vox.Model.id, Vox.Model.point, Vox.Model.axis, Vox.Model.axis) :: Vox.Voxel.t | nil | no_return
     def voxel!(data, index, x, y, z), do: voxel!(data, index, { x, y, z })
+
+    @spec transform(Vox.Data.t, Vox.Data.origin) :: Vox.Data.t
+    def transform(data, origin), do: Vox.Transform.new(data, origin)
+
+    @spec transform(Vox.Data.t, Vox.Data.face, Vox.Data.face, Vox.Data.face) :: Vox.Data.t
+    def transform(data, x, y, z), do: transform(data, { x, y, z })
 end
