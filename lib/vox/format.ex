@@ -1,5 +1,5 @@
 defmodule Vox.Format do
-    @callback new(any) :: any
+    @callback new(any) :: Vox.Data.t
 
     @callback format?(any) :: boolean
 end
