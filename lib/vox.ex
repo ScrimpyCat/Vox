@@ -1,4 +1,18 @@
 defmodule Vox do
+    @spec new(any) :: Vox.Data.t | nil
+    def new(data), do: new(data, format(data))
+
+    @spec new(any, module) :: Vox.Data.t
+    @spec new(any, nil) :: nil
+    def new(_, nil), do: nil
+    def new(data, module), do: module.new(data)
+
+    @default_formats [
+        Vox.Format.VOX
+    ]
+    @spec format(any) :: module | nil
+    def format(data), do: Enum.find(Application.get_env(:vox, :formats, []), &(&1.format?(data))) || Enum.find(@default_formats, &(&1.format?(data)))
+
     @spec models(Vox.Data.t) :: [Vox.Model.t]
     def models(data), do: Vox.Data.models(data)
 
