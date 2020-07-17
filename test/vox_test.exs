@@ -18,7 +18,7 @@ defmodule VoxTest do
             assert %Vox.NoModelError{} = catch_error Vox.voxel!(vox, 1, 0, 0, 0)
 
             solid = %Vox.Voxel{
-                colour: %Vox.Colour{ r: 0.6, g: 0.8, b: 0.8 },
+                colour: %Vox.Colour{ r: 0.6, g: 0.8, b: 1.0 },
                 material: %Vox.Material{
                     type: :diffuse,
                     properties: %{
@@ -37,7 +37,7 @@ defmodule VoxTest do
                 }
             }
             glass = %Vox.Voxel{
-                colour: %Vox.Colour{ r: 0.8, g: 0.0, b: 0.0 },
+                colour: %Vox.Colour{ r: 0.8, g: 0.0, b: 0.2 },
                 material: %Vox.Material{
                     type: :glass,
                     properties: %{
