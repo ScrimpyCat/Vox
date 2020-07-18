@@ -1,4 +1,5 @@
 defmodule Vox.Format.VOX.Binary.Chunk do
+    @moduledoc false
     use Tonic, optimize: true
 
     string :id, length: 4

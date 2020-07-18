@@ -1,4 +1,5 @@
 defmodule Vox.Format.VOX.Binary.Chunk.Deprecated.Material do
+    @moduledoc false
     use Tonic, optimize: true
 
     int32 :id

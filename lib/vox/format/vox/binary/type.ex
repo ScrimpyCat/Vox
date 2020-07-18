@@ -1,4 +1,5 @@
 defmodule Vox.Format.VOX.Binary.Type do
+    @moduledoc false
     import Tonic
 
     type :nstring, fn data, name, endianness ->

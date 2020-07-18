@@ -1,4 +1,5 @@
 defmodule Vox.Format.VOX.Binary.Chunk.RGBA do
+    @moduledoc false
     use Tonic, optimize: true
 
     repeat :palette, 256 do
