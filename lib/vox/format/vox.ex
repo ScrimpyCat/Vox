@@ -1,4 +1,8 @@
 defmodule Vox.Format.VOX do
+    @moduledoc """
+      Interface for handling [VOX](https://github.com/ephtracy/voxel-model)
+      file formats (used by [MagicaVoxel](http://ephtracy.github.io)).
+    """
     use Bitwise
     @behaviour Vox.Format
 
@@ -33,6 +37,7 @@ defmodule Vox.Format.VOX do
         scene: %{}
     ]
 
+    @spec new(binary) :: Vox.Data.t
     def new(data) do
         { data, _ } = Tonic.load(data, Vox.Format.VOX.Binary)
 
@@ -77,6 +82,7 @@ defmodule Vox.Format.VOX do
         create_voxels(data, [{ { x, y, z }, %{ colour_index: colour_index } }|voxels])
     end
 
+    @spec format?(binary) :: boolean
     def format?(<<"VOX ", _ :: binary>>), do: true
     def format?(_), do: false
 
