@@ -1,4 +1,7 @@
 defmodule Vox.Format.VOX.Binary do
+    @moduledoc """
+      Spec for loading VOX binary format.
+    """
     use Tonic, optimize: true
 
     endian :little

@@ -1,7 +1,7 @@
 defmodule Vox.Format.VOX do
     @moduledoc """
       Interface for handling [VOX](https://github.com/ephtracy/voxel-model)
-      file formats (used by [MagicaVoxel](http://ephtracy.github.io)).
+      file formats ([MagicaVoxel](http://ephtracy.github.io)).
     """
     use Bitwise
     @behaviour Vox.Format
