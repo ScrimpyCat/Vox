@@ -1,6 +1,8 @@
 defmodule Vox.Format.VOX.Binary do
     @moduledoc """
       Spec for loading VOX binary format.
+
+        Tonic.load(data, #{__MODULE__})
     """
     use Tonic, optimize: true
 
