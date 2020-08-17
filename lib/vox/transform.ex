@@ -1,4 +1,8 @@
 defmodule Vox.Transform do
+    @moduledoc """
+      The transform struct represents a coordinate transformation. Transforms
+      can be stacked.
+    """
     defstruct [:origin, :data]
 
     @type t :: %__MODULE__{ data: Vox.Data.t, origin: Vox.Data.origin }
@@ -7,9 +11,13 @@ defmodule Vox.Transform do
     @side_y [:bottom, :top]
     @side_z [:front, :back]
 
+    @doc """
+      Create a new transformation.
+    """
     @spec new(Vox.Data.t, Vox.Data.origin) :: t
     def new(data, origin), do: %__MODULE__{ data: data, origin: origin }
 
+    @doc false
     def transform(a, b) do
         { x, w } = transform_w(a, b)
         { y, h } = transform_h(a, b)
@@ -56,10 +64,12 @@ defmodule Vox.Transform do
     end
 
     @axes [x: 0, y: 1, z: 2]
+    @doc false
     for { x, xi } <- @axes, { y, yi } <- @axes, { z, zi } <- @axes, (x != y) and (x != z) and (y != z) do
         def swizzle({ x, y, z }, unquote(Macro.escape({ xi, yi, zi }))), do: { unquote({ x, [], nil }), unquote({ y, [], nil }), unquote({ z, [], nil }) }
     end
 
+    @doc false
     def resolve(point, size, [fun|ops]), do: resolve(fun.(point, size), size, ops)
     def resolve(point, _, []), do: point
 
