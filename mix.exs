@@ -7,7 +7,10 @@ defmodule Vox.MixProject do
             version: "0.1.0",
             elixir: "~> 1.10",
             start_permanent: Mix.env() == :prod,
-            deps: deps()
+            deps: deps(),
+            docs: [
+                markdown_processor: ExDocSimpleMarkdown
+            ]
         ]
     end
 
@@ -17,7 +20,10 @@ defmodule Vox.MixProject do
 
     defp deps do
         [
-            { :tonic, "~> 0.2.2"  }
+            { :tonic, "~> 0.2.2"  },
+            { :simple_markdown, "~> 0.8", only: :dev, runtime: false },
+            { :ex_doc_simple_markdown, "~> 0.5", only: :dev, runtime: false },
+            { :ex_doc, "~> 0.18", only: :dev }
         ]
     end
 end
